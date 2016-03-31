@@ -1,5 +1,5 @@
 # OpenBSD-gpio-idlemon
-Blinks an LED based on CPU load.
+Blinks an LED based on CPU load. When the system is idle, the LED will blink every few seconds. When the system is busy, the LED will blink rapidly.
 
 ###PC Engines ALIX
 An example configuration for ALIX boards follows.
