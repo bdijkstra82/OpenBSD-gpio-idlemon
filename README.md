@@ -1,5 +1,8 @@
-# OpenBSD-alix-idlemon
-Blinks LEDs on PC Engines ALIX boards.
+# OpenBSD-gpio-idlemon
+Blinks an LED based on CPU load.
+
+###PC Engines ALIX
+An example configuration for ALIX boards follows.
 
 Add to /etc/rc.securelevel:
 
@@ -7,7 +10,6 @@ Add to /etc/rc.securelevel:
 	gpioctl -q gpio0 6 set out LED1
 	gpioctl -q gpio0 25 set out LED2
 	gpioctl -q gpio0 27 set out LED3
-	gpioctl -q gpio0 24 set in MODESW	# (optional)
 
 Add to /etc/rc.local:
 
@@ -16,11 +18,11 @@ Add to /etc/rc.local:
 	gpioctl -q gpio0 LED2 off
 	gpioctl -q gpio0 LED3 on
 	# as the last action, start the blinkenlights
-	/usr/local/bin/alixidlemon LED3
+	/usr/local/bin/gpioidlemon /dev/gpio0 LED3
 
 Add to /etc/rc.shutdown:
 
 	# signal we are shutting down
-	pkill alixidlemon
+	pkill gpioidlemon
 	gpioctl -q gpio0 LED3 off
 	gpioctl -q gpio0 LED2 off
