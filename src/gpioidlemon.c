@@ -59,7 +59,7 @@ get_busy_ticks(void)
 }
 
 static void 
-feedback(const char *dev, struct gpio_pin_op *op) 
+feedback(const char *dev, const struct gpio_pin_op *op) 
 {
 	int fd, r;
 
@@ -97,6 +97,7 @@ main(int argc, char** argv)
 	strlcpy(feedback_op.gp_name, pin, GPIOPINMAXNAME);
 
 	/* try gpio ioctl before detaching */
+	feedback(dev, &feedback_op);
 	feedback(dev, &feedback_op);
 #if !DEBUG
 	daemon(0, 0);

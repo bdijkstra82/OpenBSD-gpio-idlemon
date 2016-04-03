@@ -1,4 +1,4 @@
-BINDIR= /usr/local/bin
+BINDIR= /usr/local/libexec
 MAN=
 PROG=   gpioidlemon
 

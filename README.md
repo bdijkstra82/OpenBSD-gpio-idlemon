@@ -18,7 +18,7 @@ Add to /etc/rc.local:
 	gpioctl -q gpio0 LED2 off
 	gpioctl -q gpio0 LED3 on
 	# as the last action, start the blinkenlights
-	/usr/local/bin/gpioidlemon /dev/gpio0 LED3
+	/usr/local/libexec/gpioidlemon /dev/gpio0 LED3
 
 Add to /etc/rc.shutdown:
 
